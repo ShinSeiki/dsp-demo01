@@ -1,0 +1,27 @@
+<div class="text-center row mb-2">
+    <div class="col-md-6 col-sm-12 mb-1">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" (click)="navCommand.doNew()">
+                <i class="feather icon-file"></i>
+            </button>
+            <button type="button" class="btn btn-primary" (click)="this.navCommand.doReload()">
+                <i class="feather icon-refresh-cw"></i>
+            </button>
+            <button type="button" class="btn btn-primary" (click)="this.navCommand.doLoad()">
+                <i class="feather icon-search"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-1">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-success" (click)="navCommand.doSave()">
+                <i class="feather icon-save"></i>
+                Guardar
+            </button>
+            <button type="button" class="btn btn-danger" (click)="navCommand.doDelete()">
+                <i class="feather icon-trash"></i>
+                Eliminar
+            </button>
+        </div>
+    </div>
+</div>

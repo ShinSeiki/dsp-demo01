@@ -1,0 +1,77 @@
+<div class="modal-header">
+  <h5 class="modal-title">Seleccionar Logistica Flotas</h5>
+</div>
+<div class="modal-body">
+  <form [formGroup]="formFilter" >
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group mb-2">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Cliente</span>
+            </div>
+            <input type="text" formControlName="filterCliente" [(ngModel)]="filterCliente" class="form-control"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group mb-2">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Numero Guia</span>
+            </div>
+            <input type="text" formControlName="filterNumguia" [(ngModel)]="filterNumguia" class="form-control"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group mb-2">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Flota</span>
+            </div>
+            <input type="text" formControlName="filterFlota" [(ngModel)]="filterFlota" class="form-control"/>
+            <span class="input-group-append">
+              <button type="submit" class="btn btn-primary" (click)="doLoad()">Buscar</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="table-responsive mx-2">
+      <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Codigo</th>
+            <th>Cliente</th>
+            <th>Tipo Producto</th>
+            <th>Bodega</th>
+            <th>Fecha Registro</th>
+            <th>Numero Guia</th>
+            <th>Flota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let flota of rows;">
+            <th>
+              <span class="badge badge-primary" (click)="modal.close(flota)">
+                <i class="fa fa-check"></i>
+              </span>
+            </th>
+            <td class="text-right">{{flota.cflota}}</td>
+            <td>{{flota.vapellido}}, {{flota.vnombre}}</td>
+            <td>{{flota.vtipoproducto}}</td>
+            <td>{{flota.valmacenamiento}}</td>
+            <td>{{flota.fregistro}}</td>
+            <td>{{flota.numguia}}</td>
+            <td>{{flota.numflota}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

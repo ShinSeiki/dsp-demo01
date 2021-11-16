@@ -1,0 +1,79 @@
+<div class="modal-header">
+  <h5 class="modal-title">Seleccionar Almacenamiento</h5>
+</div>
+<div class="modal-body">
+  <form [formGroup]="formFilter" >
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group mb-2">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Criterio</span>
+            </div>
+            <input type="text" formControlName="filterText" [(ngModel)]="filterText" class="form-control"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3" *ngIf="showType">
+        <div class="form-group mb-2">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Tipo</span>
+            </div>
+            <select formControlName="filterTAlmacenamiento" [(ngModel)]="filterTAlmacenamiento" class="form-control">
+              <option value=""></option>
+              <option value="Bodega">Bodega</option>
+              <option value="Puerto">Puerto</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group mb-2">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Region</span>
+            </div>
+            <select formControlName="filterTRegion" [(ngModel)]="filterTRegion" class="form-control">
+              <option value=""></option>
+              <option value="Nacional">Nacional</option>
+              <option value="Internacional">Internacional</option>
+            </select>
+            <span class="input-group-append">
+              <button type="submit" class="btn btn-primary" (click)="doLoad()">Buscar</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="table-responsive mx-2">
+      <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <td></td>
+            <td>Codigo</td>
+            <td *ngIf="showType">Tipo</td>
+            <td>Nombre</td>
+            <td>Region</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alm of rows;">
+            <td>
+              <span class="badge badge-primary" (click)="modal.close(alm)">
+                <i class="fa fa-check"></i>
+              </span>
+            </td>
+            <td>{{alm.calmacenamiento}}</td>
+            <td *ngIf="showType">{{alm.talmacenamiento}}</td>
+            <td>{{alm.valmacenamiento}}</td>
+            <td>{{alm.tregion}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+
+ng g module pages/demo01 --routing --flat
+
+ng g component pages/demo01/index --flat --skip-tests
+ng g component pages/demo01/cliente/cliente-edit --flat --skip-tests
+ng g component pages/demo01/cliente/cliente-dialog --flat --skip-tests
+ng g component pages/demo01/tipoproducto/tipo-producto-edit --flat --skip-tests
+ng g component pages/demo01/tipoproducto/tipo-producto-dialog --flat --skip-tests
+ng g component pages/demo01/almacenamiento/almacenamiento-edit --flat --skip-tests
+ng g component pages/demo01/almacenamiento/almacenamiento-dialog --flat --skip-tests
+ng g component pages/demo01/camion/camion-edit --flat --skip-tests
+ng g component pages/demo01/camion/camion-dialog --flat --skip-tests
+ng g component pages/demo01/flota/flota-edit --flat --skip-tests
+ng g component pages/demo01/flota/flota-dialog --flat --skip-tests
+ng g component pages/demo01/util/component/navigation-model-command --flat --skip-tests
+ng g component pages/demo01/util/dialog/confirm-dialog --flat --skip-tests
+ng g component pages/demo01/util/dialog/info-dialog --flat --skip-tests
+ng g component pages/demo01/util/dialog/wait-dialog --flat --skip-tests
+
+ng g class core/model/base-model --type=model --skip-tests
+
+ng g class core/comp/base-model-component --type=model --skip-tests
+
+ng g class core/util/base-nav-record --type= --skip-tests
+ng g class core/util/basic-utils --type= --skip-tests
+
+ng g service core/service/baseentity --skip-tests
+ng g service core/service/cliente --skip-tests

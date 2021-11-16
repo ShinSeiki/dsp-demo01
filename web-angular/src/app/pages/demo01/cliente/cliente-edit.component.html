@@ -1,0 +1,32 @@
+<app-navigation-model-command #navEntCommand ></app-navigation-model-command>
+
+<div class="d-flex justify-content-center row">
+  <div class="col-md-6">
+      <app-card cardTitle="Gestion de Clientes">
+        <form [formGroup]="formEntity">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="ccliente">Codigo</label>
+                <input type="number" class="form-control text-right" id="ccliente" placeholder="Codigo Cliente" 
+                  formControlName="ccliente" [(ngModel)]="entity.ccliente" readonly="true" 
+                />
+              </div>
+              <div class="form-group">
+                <label for="vnombre">Nombres</label>
+                <input type="text" class="form-control" id="vnombre" placeholder="Nombres" 
+                  formControlName="vnombre" [(ngModel)]="entity.vnombre"
+                />
+              </div>
+              <div class="form-group">
+                <label for="vapellido">Apellidos</label>
+                <input type="text" class="form-control" id="vapellido" placeholder="Apellidos" 
+                  formControlName="vapellido" [(ngModel)]="entity.vapellido"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </app-card>
+  </div>
+</div>

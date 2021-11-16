@@ -1,0 +1,77 @@
+<div class="modal-header">
+  <h5 class="modal-title">Seleccionar Logistica Camiones</h5>
+</div>
+<div class="modal-body">
+  <form [formGroup]="formFilter" >
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group mb-2">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Cliente</span>
+            </div>
+            <input type="text" formControlName="filterCliente" [(ngModel)]="filterCliente" class="form-control"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group mb-2">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Numero Guia</span>
+            </div>
+            <input type="text" formControlName="filterNumguia" [(ngModel)]="filterNumguia" class="form-control"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group mb-2">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Placa</span>
+            </div>
+            <input type="text" formControlName="filterPlaca" [(ngModel)]="filterPlaca" class="form-control"/>
+            <span class="input-group-append">
+              <button type="submit" class="btn btn-primary" (click)="doLoad()">Buscar</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="table-responsive mx-2">
+      <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Codigo</th>
+            <th>Cliente</th>
+            <th>Tipo Producto</th>
+            <th>Bodega</th>
+            <th>Fecha Registro</th>
+            <th>Numero Guia</th>
+            <th>Placa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let camion of rows;">
+            <th>
+              <span class="badge badge-primary" (click)="modal.close(camion)">
+                <i class="fa fa-check"></i>
+              </span>
+            </th>
+            <td class="text-right">{{camion.ccamion}}</td>
+            <td>{{camion.vapellido}}, {{camion.vnombre}}</td>
+            <td>{{camion.vtipoproducto}}</td>
+            <td>{{camion.valmacenamiento}}</td>
+            <td>{{camion.fregistro}}</td>
+            <td>{{camion.numguia}}</td>
+            <td>{{camion.placaveh}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

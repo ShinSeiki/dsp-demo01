@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h5 class="modal-title">Seleccionar Tipo Producto</h5>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="table-responsive mx-2">
+      <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <td></td>
+            <td>Codigo</td>
+            <td>Nombre</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tipoprod of rows;">
+            <td>
+              <span class="badge badge-primary" (click)="modal.close(tipoprod)">
+                <i class="fa fa-check"></i>
+              </span>
+            </td>
+            <td>{{tipoprod.ctipoproducto}}</td>
+            <td>{{tipoprod.vtipoproducto}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

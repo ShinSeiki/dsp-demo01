@@ -1,0 +1,58 @@
+<app-navigation-model-command #navEntCommand ></app-navigation-model-command>
+
+<div class="d-flex justify-content-center row">
+  <div class="col-md-12">
+    <app-card cardTitle="Gestion de Almacenamientos">
+      <form [formGroup]="formEntity">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="calmacenamiento">Codigo</label>
+              <input type="number" class="form-control text-right" id="calmacenamiento" placeholder="Codigo Almacenamiento" 
+                formControlName="calmacenamiento" [(ngModel)]="entity.calmacenamiento" readonly="true" 
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="talmacenamiento">Tipo</label>
+              <select class="form-control" id="talmacenamiento" aria-placeholder="Tipo Almacenamiento"
+                formControlName="talmacenamiento" [(ngModel)]="entity.talmacenamiento"
+              >
+                <option value="Bodega">Bodega</option>
+                <option value="Puerto">Puerto</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="valmacenamiento">Nombre</label>
+              <input type="text" class="form-control" id="valmacenamiento" placeholder="Nombre Almacenamiento" 
+                formControlName="valmacenamiento" [(ngModel)]="entity.valmacenamiento"
+              />
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-group">
+              <label for="vdireccion">Direccion</label>
+              <input type="text" class="form-control" id="vdireccion" placeholder="Direccion Almacenamiento" 
+                formControlName="vdireccion" [(ngModel)]="entity.vdireccion"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="tregion">Region</label>
+              <select class="form-control" id="tregion" aria-placeholder="Region Almacenamiento"
+                formControlName="tregion" [(ngModel)]="entity.tregion"
+              >
+                <option value="Nacional">Nacional</option>
+                <option value="Internacional">Internacional</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </app-card>
+  </div>
+</div>

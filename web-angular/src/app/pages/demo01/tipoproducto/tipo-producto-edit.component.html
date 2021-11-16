@@ -1,0 +1,28 @@
+<app-navigation-model-command #navEntCommand ></app-navigation-model-command>
+
+<div class="d-flex justify-content-center row">
+  <div class="col-md-6">
+    <app-card cardTitle="Gestion de Tipo Productos">
+      <form [formGroup]="formEntity">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="ctipoproducto">Codigo</label>
+              <input type="number" class="form-control text-right" id="ctipoproducto" placeholder="Codigo Tipo Producto" 
+                formControlName="ctipoproducto" [(ngModel)]="entity.ctipoproducto" readonly="true" 
+              />
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="vtipoproducto">Nombre</label>
+              <input type="text" class="form-control" id="vtipoproducto" placeholder="Nombre Tipo Producto" 
+                formControlName="vtipoproducto" [(ngModel)]="entity.vtipoproducto" 
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+    </app-card>
+  </div>
+</div>

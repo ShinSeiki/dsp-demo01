@@ -1,0 +1,10 @@
+<div class="modal-header">
+    {{title}}
+</div>
+<div class="modal-body">
+    {{message}}
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.close(false)">Cancelar</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close(true)">Aceptar</button>
+</div>

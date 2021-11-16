@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1" 
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
+>
+	<named-native-query name="ClienteMapping">
+		<query>
+select ccliente, vapellido, vnombre 
+from dem_cliente
+where (:ccliente = 0 or ccliente = :ccliente)
+	and (
+		(:filter = '' or vnombre like :filter)
+		or (:filter = '' or vapellido like :filter)
+	)
+order by ccliente 
+		</query>
+	</named-native-query>
+	<named-native-query name="AlmacenamientoMapping">
+		<query>
+select a from Almacenamiento a
+where (:calmacenamiento = 0 or a.calmacenamiento = :calmacenamiento)
+	and (:talmacenamiento is null or a.talmacenamiento = :talmacenamiento)
+	and (:tregion is null or :tregion = a.tregion)
+	and (:filter = '' or a.valmacenamiento like :filter)
+order by a.tregion, a.valmacenamiento
+		</query>
+	</named-native-query>
+	<named-native-query name="CamionMapping">
+		<query>
+SELECT c.ccamion, c.placaveh, c.calmacenamiento, a.valmacenamiento, 
+	c.ctipoproducto, tp.vtipoproducto, cl.ccliente, cl.vnombre, cl.vapellido, 
+	c.fregistro, c.numguia 
+FROM dem_camion c
+	left join dem_almacenamiento a on c.calmacenamiento = a.calmacenamiento
+	left join dem_tipoproducto tp on c.ctipoproducto = tp.ctipoproducto 
+	left join dem_cliente cl on c.ccliente = cl.ccliente 
+where (:ccamion = 0 or c.ccamion = :ccamion)
+	and (:filterNumguia = '' or c.numguia like :filterNumguia)
+	and (:filterPlaca = '' or c.placaveh like :filterPlaca)
+	and (:filterCliente = '' or (cl.vnombre like :filterCliente or cl.vapellido like :filterCliente))
+limit 100
+		</query>
+	</named-native-query>
+	<named-native-query name="FlotaMapping">
+		<query>
+SELECT f.cflota, f.numflota, f.calmacenamiento, a.valmacenamiento, 
+	f.ctipoproducto, tp.vtipoproducto, cl.ccliente, cl.vnombre, cl.vapellido, 
+	f.fregistro, f.numguia 
+FROM dem_flota f
+	left join dem_almacenamiento a on f.calmacenamiento = a.calmacenamiento
+	left join dem_tipoproducto tp on f.ctipoproducto = tp.ctipoproducto 
+	left join dem_cliente cl on f.ccliente = cl.ccliente 
+where (:cflota = 0 or f.cflota = :cflota)
+	and (:filterNumguia = '' or f.numguia like :filterNumguia)
+	and (:filterFlota = '' or f.numflota like :filterFlota)
+	and (:filterCliente = '' or (cl.vnombre like :filterCliente or cl.vapellido like :filterCliente))
+order by f.fregistro 
+limit 100
+		</query>
+	</named-native-query>
+</entity-mappings>

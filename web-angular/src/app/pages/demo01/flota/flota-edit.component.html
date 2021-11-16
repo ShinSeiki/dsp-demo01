@@ -1,0 +1,127 @@
+<app-navigation-model-command #navEntCommand ></app-navigation-model-command>
+
+<div class="d-flex justify-content-center row">
+    <div class="col-md-12">
+      <app-card cardTitle="Gestion de Logistica Flota">
+        <form [formGroup]="formEntity">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group">
+                <label for="cflota">Codigo</label>
+                <input type="number" class="form-control text-right" id="cflota" placeholder="Codigo Flota" 
+                  formControlName="cflota" [(ngModel)]="entity.cflota" readonly="true" 
+                />
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-group">
+                <label for="valmacenamiento">Puerto</label>
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" id="valmacenamiento" placeholder="Puerto" 
+                    formControlName="valmacenamiento" [(ngModel)]="bodega.valmacenamiento" readonly="true" 
+                  />
+                  <span class="input-group-append">
+                    <button type="submit" class="btn btn-primary" (click)="doAlmacenamientoLoad()">
+                      <i class="feather icon-search"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-group">
+                <label for="valmacenamiento">Tipo Producto</label>
+                <select class="form-control" id="ctipoproducto" 
+                  formControlName="ctipoproducto" [(ngModel)]="entity.ctipoproducto"
+                >
+                  <option *ngFor="let tipoProd of cacheTipoProds;" [value]="tipoProd.ctipoproducto">
+                    {{tipoProd.vtipoproducto}}
+                  </option>
+                </select>
+                <small *ngIf="formEntity.controls['ctipoproducto'].invalid" class="text-danger">
+                  Debe seleccionar un tipo de producto.
+                </small>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="vapellido">Cliente</label>
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" id="vapellido" placeholder="Cliente Apellido" 
+                    formControlName="vapellido" [(ngModel)]="cliente.vapellido" readonly="true" 
+                  />
+                  <input type="text" class="form-control" id="vnombre" placeholder="Cliente Nombre" 
+                    formControlName="vnombre" [(ngModel)]="cliente.vnombre" readonly="true" 
+                  />
+                  <span class="input-group-append">
+                    <button type="submit" class="btn btn-primary" (click)="doClienteLoad()">
+                      <i class="feather icon-search"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="fregistro">Fecha Registro</label>
+                <input type="date" class="form-control " id="fregistro" placeholder="Fecha de Registro" 
+                  formControlName="fregistro" readonly="true"
+                  [(ngModel)]="entity.fregistro"
+                />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="fentrega">Fecha Entrega</label>
+                <input type="date" class="form-control " id="fentrega" placeholder="Fecha de Entrega" 
+                  formControlName="fentrega" [(ngModel)]="entity.fentrega" 
+                />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="numguia">Numero de Guia</label>
+                <input type="text" class="form-control " id="numguia" placeholder="Numbero de Guia" 
+                  formControlName="numguia" [(ngModel)]="entity.numguia" 
+                />
+                <small *ngIf="formEntity.controls['numguia'].invalid" class="text-danger">
+                  El valor debe ser alfanumerico de 10 caracteres.
+                </small>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="numflota">Nro. de Flota</label>
+                <input type="text" class="form-control " id="numflota" placeholder="Nro. de Flota" 
+                  formControlName="numflota" [(ngModel)]="entity.numflota" 
+                />
+                <small *ngIf="formEntity.controls['numflota'].invalid" class="text-danger">
+                  El valor debe iniciar con 3 letras, continuar con 4 digitos y terminar con 1 letra.
+                </small>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="cantidad">Cantidad</label>
+                <input type="number" class="form-control text-right" id="cantidad" placeholder="Cantidad" 
+                  formControlName="cantidad" [(ngModel)]="entity.cantidad" 
+                />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="precioenvio">Precio Envio</label>
+                <input type="number" step=".01" 
+                  class="form-control text-right" id="precioenvio" placeholder="Precio Envio" 
+                  formControlName="precioenvio" [(ngModel)]="entity.precioenvio" 
+                />
+              </div>
+            </div>
+          </div>
+  
+          {{formEntity.valid}}
+        </form>
+      </app-card>
+    </div>
+  </div>
+  
